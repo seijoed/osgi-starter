@@ -27,7 +27,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Export-Package>com.packt.osgi.starter.consume</Export-Package>
+            <Export-Package>com.packt.osgi.starter.consumer</Export-Package>
           </instructions>
         </configuration>
       </plugin>
