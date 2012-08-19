@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>starter</artifactId>
+    <groupId>starter</groupId>
+    <version>1.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>parent</artifactId>
+  <packaging>pom</packaging>
+  <!-- Inherited properties -->
+  <properties>
+    <aether.version>1.4.2</aether.version>
+    <blueprint.version>0.3.1</blueprint.version>
+    <felix.framework.version>4.0.2</felix.framework.version>
+    <karaf.version>2.2.8</karaf.version>
+    <logback.version>0.9.29</logback.version>
+    <osgi.core.version>4.2.0</osgi.core.version>
+    <pax.exam.version>2.5.0</pax.exam.version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <!-- OSGi dependencies -->
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.core</artifactId>
+        <version>${osgi.core.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>starter</groupId>
+        <artifactId>producer</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>starter</groupId>
+        <artifactId>consumer</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!-- Test dependecies -->
+
+      <dependency>
+        <groupId>org.apache.aries.blueprint</groupId>
+        <artifactId>org.apache.aries.blueprint</artifactId>
+        <version>${blueprint.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam</artifactId>
+        <version>${pax.exam.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-spi</artifactId>
+        <version>${pax.exam.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-junit4</artifactId>
+        <version>${pax.exam.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-container-forked</artifactId>
+        <version>${pax.exam.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-junit4</artifactId>
+        <version>${pax.exam.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>pax-exam-link-mvn</artifactId>
+        <version>${pax.exam.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.ops4j.pax.url</groupId>
+        <artifactId>pax-url-aether</artifactId>
+        <version>${aether.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>org.apache.felix.framework</artifactId>
+        <version>${felix.framework.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>${logback.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${logback.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+            <groupId>org.apache.karaf</groupId>
+            <artifactId>karaf</artifactId>
+            <version>${karaf.version}</version>
+            <type>pom</type>
+            <scope>test</scope>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.karaf</groupId>
+            <artifactId>org.apache.karaf.main</artifactId>
+            <version>${karaf.version}</version>
+            <scope>test</scope>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.karaf.jaas</groupId>
+            <artifactId>org.apache.karaf.jaas.boot</artifactId>
+            <version>${karaf.version}</version>
+            <scope>test</scope>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.karaf.jaas</groupId>
+            <artifactId>org.apache.karaf.jaas.config</artifactId>
+            <version>${karaf.version}</version>
+            <scope>test</scope>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.karaf.jaas</groupId>
+            <artifactId>org.apache.karaf.jaas.modules</artifactId>
+            <version>${karaf.version}</version>
+            <scope>test</scope>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.karaf.tooling</groupId>
+            <artifactId>org.apache.karaf.tooling.testing</artifactId>
+            <version>${karaf.version}</version>
+            <exclusions>
+              <exclusion>
+                <groupId>org.apache.karaf</groupId>
+                <artifactId>manual</artifactId>
+              </exclusion>
+              <exclusion>
+                <groupId>org.apache.karaf</groupId>
+                <artifactId>org.apache.karaf.client</artifactId>
+              </exclusion>
+              <exclusion>
+                <groupId>org.ops4j.pax.logging</groupId>
+                <artifactId>pax-logging-api</artifactId>
+              </exclusion>
+            </exclusions>
+            <scope>test</scope>
+          </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <pluginManagement>
+    </pluginManagement>
+    <plugins>
+    </plugins>
+  </build>
+</project>
